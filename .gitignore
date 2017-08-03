@@ -5,3 +5,4 @@ haters/
 .idea/
 *.sublime-*
 _site/
+Gemfile.lock

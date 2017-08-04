@@ -3,4 +3,14 @@ layout: default
 title: JS 30
 ---
 
-<h1>This is a test</h1>
+<h1>My JS 30</h1>
+
+<p>Below are my efforts at following the JS 30 course by <a href="https://javascript30.com/">Wes Bos</a>. I thought this was a great exercise; these days it's so easy to just slap a library that you're familiar with into the head of a web page and code away. But with the additions of ES6 and just general ignorance of all the things you can do with just vanilla JS, this is really not necessary, not as often as we use. I found the exercises quick, informing, and fun. Have a look around and then I'd encourage you to go do the course yourself.</p>
+
+<em>This is currently a WIP. Exercises will be added as I complete them :)</em>
+
+<h2>My Results</h2>
+
+{% for exercise in site.exercises %}
+    <h3><a href="{{ forloop.index }}/index.html">{{ exercise }}</a></h3>
+{% endfor %}

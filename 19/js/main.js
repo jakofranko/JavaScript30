@@ -4,6 +4,11 @@ const ctx = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
 
+let redEffectActive     = false;
+let rgbSplitActive      = false;
+let greenScreenActive   = false;
+let ghostEffectActive   = false;
+
 
 function getVideo() {
     navigator.mediaDevices.getUserMedia({ video: true, audio: false })
@@ -30,12 +35,12 @@ function paintToCanvas() {
         let pixels = ctx.getImageData(0, 0, width, height);
 
         // Apply filters
-        // pixels = redEffect(pixels);
-        // pixels = rgbSplit(pixels);
-        pixels = greenScreen(pixels);
-
-        // "Ghosting" effect
-        // ctx.globalAlpha = 0.1;
+        if(redEffectActive)
+            pixels = redEffect(pixels);
+        if(rgbSplitActive)
+            pixels = rgbSplit(pixels);
+        if(greenScreenActive)
+            pixels = greenScreen(pixels);
 
         // Finally, paint the pixels to the canvas
         ctx.putImageData(pixels, 0, 0);
@@ -109,6 +114,24 @@ function greenScreen(pixels) {
     }
 
     return pixels;
+}
+
+// Toggles
+function toggleRedEffect() {
+    redEffectActive = !redEffectActive;
+}
+function toggleRgbSplit() {
+    rgbSplitActive = !rgbSplitActive;
+}
+function toggleGreenScreen() {
+    greenScreenActive = !greenScreenActive;
+}
+function toggleGhostEffect() {
+    ghostEffectActive = !ghostEffectActive;
+    if(ghostEffectActive)
+        ctx.globalAlpha = 0.1;
+    else
+        ctx.globalAlpha = 1;
 }
 getVideo();
 

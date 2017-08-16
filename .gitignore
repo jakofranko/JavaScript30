@@ -6,3 +6,4 @@ haters/
 *.sublime-*
 _site/
 Gemfile.lock
+19/node_modules/

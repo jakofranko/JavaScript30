@@ -35,7 +35,18 @@ h1 {
   align-items: center;
 }
 
+h2 {
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center
+}
+
 .units {
   font-size: 15px;
+}
+
+.update {
+  transition: opacity 0.5s;
 }
 /*Compass: https://thenounproject.com/search/?q=compass&i=592352*/
